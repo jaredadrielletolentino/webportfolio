@@ -511,3 +511,14 @@ footer .container {
   transform: scale(1.05); /* Slightly increase size of the image */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
+
+#tool-icon-container {
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  border-radius: 10px; /* Optional: Make image corners rounded */
+}
+
+/* Hover Effect on Images */
+#tool-icon-container:hover {
+  transform: scale(1.05); /* Slightly increase size of the image */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+}
