@@ -519,6 +519,6 @@ footer .container {
 
 /* Hover Effect on Images */
 #tool-icon-container:hover {
-  transform: scale(1.05); /* Slightly increase size of the image */
+  transform: scale(1.5); /* Slightly increase size of the image */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
