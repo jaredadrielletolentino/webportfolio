@@ -1,5 +1,7 @@
 html, body {
-	background-color: #081b29;
+	background-image: url('./images/fullstack-developer-background.svg');
+    background-size: cover;
+    background-attachment: fixed;
 	scroll-behavior: smooth;
 	font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
@@ -13,7 +15,7 @@ html, body {
 /* Start of Navbar */
 #menu {
     padding: 10px 0;
-    background: #081b29;
+    
 }
 
 .navbar-nav .nav-link { 
@@ -155,7 +157,7 @@ html, body {
 .home {
     margin-top: 5rem;
    /* padding-bottom: 3.5rem;*/
-    background-color: #0D1B2A;
+    /*background-color: #0D1B2A;*/
     display: flex;
     align-items: center;
 }
@@ -465,7 +467,7 @@ footer .container {
 .last-text {
     width: 100%;
     text-align: center;
-    padding: 20px 0;
+    padding: 8px 0;
     background: #1c2d50;
     font-weight: 300;
     margin-top: 70px;

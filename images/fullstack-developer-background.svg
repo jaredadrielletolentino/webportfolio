@@ -1,0 +1,115 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a3a" />
+      <stop offset="100%" stop-color="#0d1b2a" />
+    </linearGradient>
+    
+    <!-- Code pattern -->
+    <pattern id="codePattern" patternUnits="userSpaceOnUse" width="300" height="300">
+      <text x="10" y="20" font-family="monospace" font-size="10" fill="#4CAF50" opacity="0.4">function init() {</text>
+      <text x="10" y="35" font-family="monospace" font-size="10" fill="#03A9F4" opacity="0.4">  const app = express();</text>
+      <text x="10" y="50" font-family="monospace" font-size="10" fill="#03A9F4" opacity="0.4">  app.use(cors());</text>
+      <text x="10" y="65" font-family="monospace" font-size="10" fill="#FF5722" opacity="0.4">  app.use(express.json());</text>
+      <text x="10" y="80" font-family="monospace" font-size="10" fill="#E91E63" opacity="0.4">  return app;</text>
+      <text x="10" y="95" font-family="monospace" font-size="10" fill="#4CAF50" opacity="0.4">}</text>
+      
+      <text x="10" y="125" font-family="monospace" font-size="10" fill="#9C27B0" opacity="0.4">const Component = () => {</text>
+      <text x="10" y="140" font-family="monospace" font-size="10" fill="#FFEB3B" opacity="0.4">  const [data, setData] = useState();</text>
+      <text x="10" y="155" font-family="monospace" font-size="10" fill="#FFEB3B" opacity="0.4">  useEffect(() => {</text>
+      <text x="10" y="170" font-family="monospace" font-size="10" fill="#FF9800" opacity="0.4">    fetchData();</text>
+      <text x="10" y="185" font-family="monospace" font-size="10" fill="#FFEB3B" opacity="0.4">  }, []);</text>
+      <text x="10" y="200" font-family="monospace" font-size="10" fill="#9C27B0" opacity="0.4">}</text>
+      
+      <text x="10" y="230" font-family="monospace" font-size="10" fill="#00BCD4" opacity="0.4">async function fetchData() {</text>
+      <text x="10" y="245" font-family="monospace" font-size="10" fill="#8BC34A" opacity="0.4">  try {</text>
+      <text x="10" y="260" font-family="monospace" font-size="10" fill="#CDDC39" opacity="0.4">    const response = await api.get();</text>
+      <text x="10" y="275" font-family="monospace" font-size="10" fill="#8BC34A" opacity="0.4">  } catch (error) {</text>
+      <text x="10" y="290" font-family="monospace" font-size="10" fill="#F44336" opacity="0.4">    console.error(error);</text>
+      <text x="10" y="305" font-family="monospace" font-size="10" fill="#8BC34A" opacity="0.4">  }</text>
+      <text x="10" y="320" font-family="monospace" font-size="10" fill="#00BCD4" opacity="0.4">}</text>
+    </pattern>
+    
+    <!-- Circuit pattern -->
+    <pattern id="circuitPattern" patternUnits="userSpaceOnUse" width="100" height="100">
+      <path d="M10,10 L50,10 L50,30 L70,30 L70,70 L30,70 L30,50 L10,50 Z" fill="none" stroke="#64ffda" stroke-width="1" opacity="0.2"/>
+      <path d="M20,20 L40,20 L40,60 L60,60 L60,40 L80,40 L80,80 L20,80 Z" fill="none" stroke="#448aff" stroke-width="1" opacity="0.2"/>
+      <circle cx="10" cy="10" r="3" fill="#64ffda" opacity="0.5"/>
+      <circle cx="50" cy="30" r="3" fill="#448aff" opacity="0.5"/>
+      <circle cx="70" cy="70" r="3" fill="#64ffda" opacity="0.5"/>
+      <circle cx="30" cy="50" r="3" fill="#448aff" opacity="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="800" height="600" fill="url(#bgGradient)" />
+  
+  <!-- Code pattern layer -->
+  <rect width="800" height="600" fill="url(#codePattern)" opacity="0.15" />
+  
+  <!-- Circuit pattern layer -->
+  <rect width="800" height="600" fill="url(#circuitPattern)" opacity="0.5" />
+  
+  <!-- Tech stack elements -->
+  <g opacity="0.2">
+    <!-- Database icon -->
+    <path d="M200,120 C200,100 250,100 250,120 L250,160 C250,180 200,180 200,160 Z" fill="#29B6F6" />
+    <path d="M200,120 C200,140 250,140 250,120" fill="none" stroke="#29B6F6" stroke-width="1" />
+    <path d="M200,140 C200,160 250,160 250,140" fill="none" stroke="#29B6F6" stroke-width="1" />
+    
+    <!-- Server icon -->
+    <rect x="550" y="150" width="80" height="40" rx="5" fill="#7E57C2" />
+    <rect x="560" y="160" width="10" height="5" fill="#B39DDB" />
+    <rect x="580" y="160" width="10" height="5" fill="#B39DDB" />
+    <rect x="600" y="160" width="10" height="5" fill="#B39DDB" />
+    <rect x="560" y="175" width="60" height="5" fill="#B39DDB" />
+    
+    <!-- Front-end icon (browser) -->
+    <rect x="150" y="350" width="100" height="80" rx="5" fill="#FF7043" />
+    <rect x="150" y="350" width="100" height="15" rx="5" fill="#FF5722" />
+    <circle cx="160" cy="357" r="3" fill="#FFCCBC" />
+    <circle cx="170" cy="357" r="3" fill="#FFCCBC" />
+    <circle cx="180" cy="357" r="3" fill="#FFCCBC" />
+    <rect x="155" y="375" width="90" height="50" rx="2" fill="#FFCCBC" opacity="0.5" />
+    
+    <!-- API icon -->
+    <rect x="550" y="350" width="80" height="60" rx="5" fill="#26A69A" />
+    <text x="565" y="385" font-family="monospace" font-size="14" fill="#E0F2F1">API</text>
+    <path d="M550,370 L630,370" stroke="#E0F2F1" stroke-width="1" />
+    <path d="M550,390 L630,390" stroke="#E0F2F1" stroke-width="1" />
+  </g>
+  
+  <!-- Connection lines -->
+  <g opacity="0.3">
+    <path d="M225,180 C225,280 400,280 400,350" fill="none" stroke="#64ffda" stroke-width="2" stroke-dasharray="5,5" />
+    <path d="M590,190 C590,280 400,280 400,350" fill="none" stroke="#448aff" stroke-width="2" stroke-dasharray="5,5" />
+    <path d="M200,390 C200,450 400,450 590,380" fill="none" stroke="#ff4081" stroke-width="2" stroke-dasharray="5,5" />
+  </g>
+  
+  <!-- Abstract data flow -->
+  <g opacity="0.3">
+    <circle cx="300" cy="300" r="2" fill="#64ffda">
+      <animate attributeName="cx" from="225" to="400" dur="7s" repeatCount="indefinite" />
+      <animate attributeName="cy" from="180" to="350" dur="7s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="500" cy="300" r="2" fill="#448aff">
+      <animate attributeName="cx" from="590" to="400" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="cy" from="190" to="350" dur="8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="400" r="2" fill="#ff4081">
+      <animate attributeName="cx" from="200" to="590" dur="6s" repeatCount="indefinite" />
+      <animate attributeName="cy" from="390" to="380" dur="6s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Subtle light particles -->
+  <circle cx="200" cy="100" r="1" fill="white" opacity="0.8" />
+  <circle cx="350" cy="250" r="1" fill="white" opacity="0.8" />
+  <circle cx="500" cy="150" r="1" fill="white" opacity="0.8" />
+  <circle cx="650" cy="300" r="1" fill="white" opacity="0.8" />
+  <circle cx="750" cy="200" r="1" fill="white" opacity="0.8" />
+  <circle cx="100" cy="350" r="1" fill="white" opacity="0.8" />
+  <circle cx="300" cy="400" r="1" fill="white" opacity="0.8" />
+  <circle cx="600" cy="450" r="1" fill="white" opacity="0.8" />
+</svg>
