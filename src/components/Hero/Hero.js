@@ -87,7 +87,7 @@ const Hero = () => {
                   variant="outlined"
                   color="primary"
                   size="large"
-                  href="/resume/resume.pdf"
+                  href="/resume/Jared_Tolentino_Resume.pdf"
                   download="Jared_Tolentino_Resume.pdf"
                 >
                   Download Resume
