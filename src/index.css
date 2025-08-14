@@ -1,6 +1,5 @@
 @import url('./styles/global.css');
 
-/* Set up the foundation for a sticky footer */
 html, body, #root {
   height: 100%;
 }

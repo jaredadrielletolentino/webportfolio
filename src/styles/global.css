@@ -26,13 +26,13 @@
 
 /* Light Theme Active Link */
 body:not(.dark-mode) .nav-link.active {
-  color: #081b29 !important; /* Dark text color for high contrast on light theme navbar */
+  color: #081b29 !important; 
   font-weight: 700;
 }
 
 /* Dark Theme Active Link */
 body.dark-mode .nav-link.active {
-  color: #ffffff !important; /* White text for high contrast on dark theme navbar */
+  color: #ffffff !important; 
   font-weight: 700;
 }
 

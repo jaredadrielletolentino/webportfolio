@@ -27,7 +27,7 @@ const Certifications = () => {
                     component="img"
                     image={cert.image}
                     alt={cert.title}
-                    sx={{ height: 220, objectFit: 'contain', p: 2 }} // Use contain to show the whole image
+                    sx={{ height: 220, objectFit: 'contain', p: 2 }}
                   />
                 </MuiLink>
                 <CardContent sx={{ textAlign: 'center' }}>

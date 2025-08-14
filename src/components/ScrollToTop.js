@@ -5,7 +5,7 @@ import { KeyboardArrowUp } from '@mui/icons-material';
 const ScrollToTop = () => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 100, // Show button after 100px of scroll
+    threshold: 100,
   });
 
   const handleClick = () => {

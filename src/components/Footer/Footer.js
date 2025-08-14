@@ -12,14 +12,12 @@ const Footer = () => {
         py: 2, 
         px: 2,
         backgroundColor: isLight ? theme.palette.primary.main : theme.palette.background.paper,
-        // The key fix: Directly set the color for all children
         color: isLight ? theme.palette.primary.contrastText : theme.palette.text.secondary,
       }}
     >
       <Container maxWidth="lg">
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1.5 }}>
           <Box sx={{ display: 'flex', gap: 1 }}>
-            {/* The 'inherit' color will now correctly pull the white color */}
             <IconButton href="https://github.com/jaredadrielletolentino" target="_blank" rel="noopener noreferrer" color="inherit" size="small">
               <GitHub />
             </IconButton>

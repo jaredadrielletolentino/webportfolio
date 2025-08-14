@@ -35,14 +35,12 @@ const Projects = () => {
                     {project.description}
                   </Typography>
                 </CardContent>
-                {/* THE FIX: Changed CardActions and Button props */}
                 <CardActions sx={{ p: 2, mt: 'auto', display: 'flex', justifyContent: 'flex-start', gap: 1 }}>
                   <Button
                     href={project.link}
                     target="_blank"
                     variant="contained"
-                    size="small" // Changed size
-                    // fullWidth prop removed
+                    size="small"
                   >
                     View Project
                   </Button>

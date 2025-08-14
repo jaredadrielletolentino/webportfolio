@@ -6,7 +6,6 @@ const projects = [
     link: 'https://csp3-hosting-saldonido-tolentino.vercel.app/',
     docs: 'https://documenter.getpostman.com/view/44617266/2sB2xCgong'
   },
-  // Add all other projects similarly
   {
     title: 'FitTracker App',
     description: 'FitTracker is a modern fitness tracking web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It empowers users to manage their fitness goals by logging workouts, tracking exercise details, and reviewing their progress over time.',

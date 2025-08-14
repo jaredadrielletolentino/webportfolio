@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
         flex: '1 1 auto',
         display: 'flex',
         flexDirection: 'column',
-        // The vertical padding is now removed from here
       }}
     >
       {children}

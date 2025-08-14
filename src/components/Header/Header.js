@@ -12,15 +12,12 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     setMobileOpen(!mobileOpen);
   };
 
-  // --- THE FIX ---
-  // Style for the NavLink components inside the drawer
   const drawerNavLinkStyle = {
     width: '100%',
     textDecoration: 'none',
-    color: theme.palette.text.primary, // Use the theme's primary text color
+    color: theme.palette.text.primary,
   };
 
-  // The drawer content
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
@@ -36,7 +33,6 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       </Typography>
       <Divider />
       <List>
-        {/* Apply the corrected style to each NavLink */}
         <ListItem button component={NavLink} to="/" sx={{ justifyContent: 'center' }} style={drawerNavLinkStyle}>
           <ListItemText primary="Home" />
         </ListItem>
@@ -72,7 +68,6 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             >
               Jared Tolentino
             </Typography>
-            {/* Desktop Nav Links */}
             <Box component="nav" sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               <NavLink to="/" className="nav-link" style={{ textDecoration: 'none', color: 'inherit' }}>Home</NavLink>
               <NavLink to="/projects" className="nav-link" style={{ marginLeft: 20, textDecoration: 'none', color: 'inherit' }}>Projects</NavLink>
@@ -83,7 +78,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">
               {darkMode ? <Brightness7 /> : <Brightness4 />}
             </IconButton>
-            {/* Mobile Menu Icon */}
+
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -96,14 +91,14 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           </Toolbar>
         </Container>
       </AppBar>
-      {/* Mobile Drawer */}
+
       <Box component="nav">
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', md: 'none' },

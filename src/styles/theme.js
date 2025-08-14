@@ -12,8 +12,8 @@ const lightTheme = createTheme({
       main: '#081b29',
     },
     background: {
-      default: '#ffffff', // Main content background is white
-      paper: '#f5f5f5',   // Paper elements are off-white
+      default: '#ffffff',
+      paper: '#f5f5f5',   
     },
     text: {
       primary: '#081b29',
@@ -35,7 +35,7 @@ const lightTheme = createTheme({
   },
 });
 
-// Dark Theme (Remains Unchanged)
+// Dark Theme
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',

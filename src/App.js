@@ -9,7 +9,7 @@ import Certificates from './pages/Certificates';
 import { lightTheme, darkTheme } from './styles/theme';
 import { useState, useEffect } from 'react';
 import Layout from './components/Layout/Layout';
-import ScrollToTop from './components/ScrollToTop'; // Import the new component
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -40,7 +40,7 @@ function App() {
           </Routes>
         </Layout>
         <Footer />
-        <ScrollToTop /> {/* Add the component here */}
+        <ScrollToTop />
       </Router>
     </ThemeProvider>
   );

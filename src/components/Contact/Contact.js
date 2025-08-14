@@ -12,11 +12,11 @@ const Contact = () => {
     message: ''
   });
 
-  // --- NEW: State for Snackbar notification ---
+  // State for Snackbar notification
   const [notification, setNotification] = useState({
     open: false,
     message: '',
-    severity: 'success' // can be 'success', 'error', 'warning', 'info'
+    severity: 'success'
   });
 
   const handleChange = (e) => {
@@ -30,12 +30,12 @@ const Contact = () => {
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const userID = process.env.REACT_APP_EMAILJS_USER_ID;
 
-    // --- UPDATED: EmailJS logic with success/error handling ---
+    // EmailJS logic with success/error handling 
     emailjs.send(serviceID, templateID, formData, userID).then(
       (result) => {
         // On success, show success message
         setNotification({ open: true, message: 'Message sent successfully!', severity: 'success' });
-        setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form
+        setFormData({ name: '', email: '', subject: '', message: '' });
       },
       (error) => {
         // On failure, show error message
@@ -44,7 +44,6 @@ const Contact = () => {
     );
   };
 
-  // --- NEW: Function to handle closing the Snackbar ---
   const handleCloseNotification = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -60,7 +59,6 @@ const Contact = () => {
         </Typography>
         
         <Grid container spacing={5} alignItems="center">
-          {/* Left Column: Contact Info */}
           <Grid item xs={12} md={5}>
             <Box sx={{ textAlign: { xs: 'center', md: 'left' }, mb: { xs: 5, md: 0 } }}>
               <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 2 }}>
@@ -92,7 +90,6 @@ const Contact = () => {
             </Box>
           </Grid>
           
-          {/* Right Column: Contact Form */}
           <Grid item xs={12} md={7}>
             <Paper
               elevation={3}
@@ -123,10 +120,9 @@ const Contact = () => {
         </Grid>
       </Container>
 
-      {/* --- NEW: Snackbar component for notifications --- */}
       <Snackbar
         open={notification.open}
-        autoHideDuration={6000} // Hide after 6 seconds
+        autoHideDuration={6000}
         onClose={handleCloseNotification}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >

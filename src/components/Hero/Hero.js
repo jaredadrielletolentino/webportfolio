@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReactTyped } from 'react-typed';
 
 const Hero = () => {
-  const theme = useTheme(); // Get access to the theme object
+  const theme = useTheme();
 
   return (
     <Box sx={{ 
@@ -30,7 +30,6 @@ const Hero = () => {
     }} className="fade-in">
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Grid container spacing={5} alignItems="center" justifyContent="center">
-          {/* Text Content */}
           <Grid item xs={12} md={7}>
             <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
               <Typography 
@@ -39,7 +38,6 @@ const Hero = () => {
                 gutterBottom 
                 sx={{ 
                   fontWeight: 700,
-                  // THE FIX: Change color to white in light mode
                   color: theme.palette.mode === 'light' ? '#fff' : 'text.primary' 
                 }}
               >
@@ -64,7 +62,6 @@ const Hero = () => {
                   mb: 4, 
                   maxWidth: { md: '550px' }, 
                   mx: { xs: 'auto', md: 0 },
-                  // THE FIX: Change color to white in light mode
                   color: theme.palette.mode === 'light' ? '#fff' : 'text.secondary'
                 }}
               >
@@ -92,7 +89,6 @@ const Hero = () => {
               </Stack>
             </Box>
           </Grid>
-          {/* Image */}
           <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Avatar
               src="/images/profile.jpg"
