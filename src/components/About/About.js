@@ -1,10 +1,24 @@
 import { Box, Container, Typography, Link as MuiLink } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { useInView } from 'react-intersection-observer';
 
 const About = () => {
   const theme = useTheme();
+
+  // Set up the observer
+  const { ref, inView } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1,    
+  });
+
   return (
-    <Box id="about" sx={{ py: 8, backgroundColor: theme.palette.background.paper }}>
+    // Apply the ref and conditional className
+    <Box
+      id="about"
+      ref={ref} 
+      className={`fade-in-section ${inView ? 'visible' : ''}`}
+      sx={{ py: 8, backgroundColor: theme.palette.background.paper }}
+    >
       <Container maxWidth="md">
         <Typography variant="h3" align="center" gutterBottom sx={{ fontWeight: 700, mb: 4 }}>
           Get to Know Me

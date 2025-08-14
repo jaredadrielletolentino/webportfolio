@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button, Stack, Grid, Avatar, useTheme } from '@mui/material'; 
+import { Box, Container, Typography, Button, Stack, Grid, Avatar, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ReactTyped } from 'react-typed';
 
@@ -6,12 +6,12 @@ const Hero = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ 
+    <Box sx={{
       position: 'relative',
       minHeight: '90vh',
       display: 'flex',
       alignItems: 'center',
-      py: { xs: 8, md: 10 }, 
+      py: { xs: 8, md: 10 },
       backgroundImage: `url(/images/hero-bg.svg)`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -22,23 +22,29 @@ const Hero = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: theme.palette.mode === 'dark' 
-          ? 'rgba(18, 18, 18, 0.7)' 
-          : 'rgba(255, 255, 255, 0.3)', 
+        backgroundColor: theme.palette.mode === 'dark'
+          ? 'rgba(18, 18, 18, 0.7)'
+          : 'rgba(255, 255, 255, 0.3)',
         zIndex: 1,
       }
     }} className="fade-in">
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <Grid container spacing={5} alignItems="center" justifyContent="center">
-          <Grid item xs={12} md={7}>
-            <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-              <Typography 
-                variant="h2" 
-                component="h1" 
-                gutterBottom 
-                sx={{ 
+        <Grid
+          container
+          spacing={5}
+          alignItems="center"
+          justifyContent="center"
+          direction={{ xs: 'column-reverse', lg: 'row' }}
+        >
+          <Grid item xs={12} lg={7}>
+            <Box sx={{ textAlign: { xs: 'center', lg: 'left' } }}>
+              <Typography
+                variant="h2"
+                component="h1"
+                gutterBottom
+                sx={{
                   fontWeight: 700,
-                  color: theme.palette.mode === 'light' ? '#fff' : 'text.primary' 
+                  color: theme.palette.mode === 'light' ? '#fff' : 'text.primary'
                 }}
               >
                 Hi, I'm Jared Tolentino
@@ -55,31 +61,31 @@ const Hero = () => {
                   loop
                 />
               </Typography>
-              <Typography 
-                variant="body1" 
-                paragraph 
-                sx={{ 
-                  mb: 4, 
-                  maxWidth: { md: '550px' }, 
-                  mx: { xs: 'auto', md: 0 },
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{
+                  mb: 4,
+                  maxWidth: { lg: '550px' },
+                  mx: { xs: 'auto', lg: 0 },
                   color: theme.palette.mode === 'light' ? '#fff' : 'text.secondary'
                 }}
               >
                 BSIT graduate specializing in web development. Passionate about innovation and continuously honing skills to adapt to the evolving digital landscape.
               </Typography>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', md: 'flex-start' }}>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent={{ xs: 'center', lg: 'flex-start' }}>
+                <Button
+                  variant="contained"
+                  color="primary"
                   component={Link}
                   to="/projects"
                   size="large"
                 >
                   View My Work
                 </Button>
-                <Button 
-                  variant="outlined" 
-                  color="primary" 
+                <Button
+                  variant="outlined"
+                  color="primary"
                   size="large"
                   href="/resume/resume.pdf"
                   download="Jared_Tolentino_Resume.pdf"
@@ -89,9 +95,11 @@ const Hero = () => {
               </Stack>
             </Box>
           </Grid>
-          <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center' }}>
+          {/* Image */}
+          <Grid item xs={12} lg={5} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Avatar
-              src="/images/profile.jpg"
+              className="hero-avatar-animation"
+              src="/images/profile.webp"
               alt="Jared Tolentino"
               sx={{
                 width: { xs: 250, sm: 300, md: 350 },
@@ -99,6 +107,7 @@ const Hero = () => {
                 border: '5px solid',
                 borderColor: 'primary.main',
                 boxShadow: 6,
+                mb: { xs: 4, lg: 0 }
               }}
             />
           </Grid>

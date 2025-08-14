@@ -1,7 +1,8 @@
-import { Box, Container, Typography, Grid, TextField, Button, Paper, Link as MuiLink, useTheme, Snackbar, Alert } from '@mui/material';
+import { Box, Container, Typography, Grid, TextField, Button, Paper, Link as MuiLink, useTheme, Snackbar, Alert, CircularProgress } from '@mui/material';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Email, Forum } from '@mui/icons-material';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
   const theme = useTheme();
@@ -12,36 +13,64 @@ const Contact = () => {
     message: ''
   });
 
-  // State for Snackbar notification
+  // form validation errors
+  const [errors, setErrors] = useState({});
+
+  // loading indicator 
+  const [loading, setLoading] = useState(false);
+
   const [notification, setNotification] = useState({
     open: false,
     message: '',
     severity: 'success'
   });
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Function to validate the form
+  const validate = () => {
+    let tempErrors = {};
+    tempErrors.name = formData.name ? "" : "This field is required.";
+    tempErrors.email = /\S+@\S+\.\S+/.test(formData.email) ? "" : "Email is not valid.";
+    tempErrors.message = formData.message ? "" : "This field is required.";
+    
+    setErrors(tempErrors);
+    
+    // Return true if the form is valid
+    return Object.values(tempErrors).every(x => x === "");
+  };
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const userID = process.env.REACT_APP_EMAILJS_USER_ID;
+    if (validate()) {
+      setLoading(true);
 
-    // EmailJS logic with success/error handling 
-    emailjs.send(serviceID, templateID, formData, userID).then(
-      (result) => {
-        // On success, show success message
-        setNotification({ open: true, message: 'Message sent successfully!', severity: 'success' });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      },
-      (error) => {
-        // On failure, show error message
-        setNotification({ open: true, message: 'Failed to send message. Please try again.', severity: 'error' });
-      }
-    );
+      const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const userID = process.env.REACT_APP_EMAILJS_USER_ID;
+
+      emailjs.send(serviceID, templateID, formData, userID).then(
+        (result) => {
+          setNotification({ open: true, message: 'Message sent successfully!', severity: 'success' });
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          setErrors({});
+        },
+        (error) => {
+          setNotification({ open: true, message: 'Failed to send message. Please try again.', severity: 'error' });
+        }
+      ).finally(() => {
+        setLoading(false);
+      });
+    }
   };
 
   const handleCloseNotification = (event, reason) => {
@@ -52,7 +81,12 @@ const Contact = () => {
   };
 
   return (
-    <Box id="contact" sx={{ py: 8 }} className="fade-in">
+    <Box
+      id="contact"
+      ref={ref}
+      className={`fade-in-section ${inView ? 'visible' : ''}`}
+      sx={{ py: 8 }}
+    >
       <Container maxWidth="lg">
         <Typography variant="h3" align="center" gutterBottom sx={{ fontWeight: 700, mb: 6 }}>
           Contact <span style={{ color: theme.palette.primary.main }}>Me</span>
@@ -68,7 +102,6 @@ const Contact = () => {
                 <Forum sx={{ mr: 1 }} />
                 Let's Build Something Together
               </Typography>
-              
               <Typography variant="overline" display="block" color="text.secondary">
                 Direct Contact
               </Typography>
@@ -95,25 +128,74 @@ const Contact = () => {
               elevation={3}
               component="form"
               onSubmit={handleSubmit}
-              sx={{
-                p: { xs: 3, md: 4 },
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 3,
-              }}
+              sx={{ p: { xs: 3, md: 4 }, display: 'flex', flexDirection: 'column', gap: 3 }}
             >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <TextField name="name" label="Name" variant="outlined" fullWidth required value={formData.name} onChange={handleChange} />
+                  <TextField 
+                    name="name" 
+                    label="Name" 
+                    variant="outlined" 
+                    fullWidth 
+                    required 
+                    value={formData.name} 
+                    onChange={handleChange}
+                    error={!!errors.name}
+                    helperText={errors.name}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField name="email" label="Email" type="email" variant="outlined" fullWidth required value={formData.email} onChange={handleChange} />
+                  <TextField 
+                    name="email" 
+                    label="Email" 
+                    type="email" 
+                    variant="outlined" 
+                    fullWidth 
+                    required 
+                    value={formData.email} 
+                    onChange={handleChange}
+                    error={!!errors.email}
+                    helperText={errors.email}
+                  />
                 </Grid>
               </Grid>
               <TextField name="subject" label="Subject" variant="outlined" fullWidth value={formData.subject} onChange={handleChange} />
-              <TextField name="message" label="Message" variant="outlined" multiline rows={5} fullWidth required value={formData.message} onChange={handleChange} />
-              <Button type="submit" variant="contained" size="large" sx={{ alignSelf: 'flex-start', mt: 1 }}>
-                Send Message
+
+              <TextField 
+                name="message" 
+                label="Message" 
+                variant="outlined" 
+                multiline 
+                rows={5} 
+                fullWidth 
+                required 
+                value={formData.message} 
+                onChange={handleChange}
+                error={!!errors.message}
+                helperText={errors.message}
+              />
+
+              <Button 
+                type="submit" 
+                variant="contained" 
+                size="large" 
+                disabled={loading}
+                sx={{ alignSelf: 'flex-start', mt: 1, position: 'relative' }}
+              >
+                {loading ? 'Sending...' : 'Send Message'}
+                {loading && (
+                  <CircularProgress
+                    size={24}
+                    sx={{
+                      color: 'primary.main',
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      marginTop: '-12px',
+                      marginLeft: '-12px',
+                    }}
+                  />
+                )}
               </Button>
             </Paper>
           </Grid>
@@ -124,9 +206,9 @@ const Contact = () => {
         open={notification.open}
         autoHideDuration={6000}
         onClose={handleCloseNotification}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%', boxShadow: 6 }}>
           {notification.message}
         </Alert>
       </Snackbar>

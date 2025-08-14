@@ -1,9 +1,21 @@
 import { Box, Container, Typography, Grid, Card, CardMedia, CardContent, Button, CardActions } from '@mui/material';
 import projects from '../../constants/projects';
+import { useInView } from 'react-intersection-observer';
 
 const Projects = () => {
+  // Set up the observer
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <Box id="projects" sx={{ py: 8 }} className="fade-in">
+    <Box
+      id="projects"
+      ref={ref}
+      className={`fade-in-section ${inView ? 'visible' : ''}`}
+      sx={{ py: 8 }}
+    >
       <Container maxWidth="lg">
         <Typography variant="h3" align="center" gutterBottom sx={{ fontWeight: 700, mb: 6 }}>
           My <span style={{ color: '#00abf0' }}>Projects</span>
@@ -11,9 +23,9 @@ const Projects = () => {
         <Grid container spacing={4}>
           {projects.map((project, index) => (
             <Grid item key={index} xs={12} sm={6} md={4}>
-              <Card sx={{ 
-                height: '100%', 
-                display: 'flex', 
+              <Card sx={{
+                height: '100%',
+                display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
@@ -49,7 +61,7 @@ const Projects = () => {
                       href={project.docs}
                       target="_blank"
                       variant="outlined"
-                      size="small" 
+                      size="small"
                     >
                       Documentation
                     </Button>
