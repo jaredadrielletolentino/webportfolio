@@ -1,0 +1,42 @@
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* --- Nav Link Styling --- */
+
+/* Default style for nav links */
+.nav-link {
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+/* Light Theme Active Link */
+body:not(.dark-mode) .nav-link.active {
+  color: #081b29 !important; /* Dark text color for high contrast on light theme navbar */
+  font-weight: 700;
+}
+
+/* Dark Theme Active Link */
+body.dark-mode .nav-link.active {
+  color: #ffffff !important; /* White text for high contrast on dark theme navbar */
+  font-weight: 700;
+}
+
+/* Hover effect for both themes */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
