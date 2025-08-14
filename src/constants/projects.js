@@ -2,7 +2,7 @@ const projects = [
   {
     title: 'E-commerce App',
     description: 'MERN E-Commerce Platform. The platform features a dynamic product catalog with filtering and sorting, real-time search, seamless cart updates, secure checkout, and a comprehensive admin dashboard.',
-    image: '/images/myProjects/bytezaar.jpg',
+    image: '/images/myProjects/bytezaar.JPG',
     link: 'https://csp3-hosting-saldonido-tolentino.vercel.app/',
     docs: 'https://documenter.getpostman.com/view/44617266/2sB2xCgong'
   },
@@ -10,7 +10,7 @@ const projects = [
   {
     title: 'FitTracker App',
     description: 'FitTracker is a modern fitness tracking web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It empowers users to manage their fitness goals by logging workouts, tracking exercise details, and reviewing their progress over time.',
-    image: '/images/myProjects/Project-3.jpg',
+    image: '/images/myProjects/project-3.jpg',
     link: 'https://tolentino-fitness-app-cpma.vercel.app/',
     docs: 'https://documenter.getpostman.com/view/44617266/2sB34hFKxb'
   },

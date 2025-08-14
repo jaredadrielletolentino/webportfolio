@@ -5,13 +5,13 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import Certificates from './pages/Certificates'; // Import the new page
+import Certificates from './pages/Certificates';
 import { lightTheme, darkTheme } from './styles/theme';
 import { useState, useEffect } from 'react';
 import Layout from './components/Layout/Layout';
+import ScrollToTop from './components/ScrollToTop'; // Import the new component
 
 function App() {
-  // Set default theme to dark mode
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
@@ -36,11 +36,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Add the new route for the certifications page */}
             <Route path="/certifications" element={<Certificates />} />
           </Routes>
         </Layout>
         <Footer />
+        <ScrollToTop /> {/* Add the component here */}
       </Router>
     </ThemeProvider>
   );

@@ -1,7 +1,7 @@
-import { Box, Container, Typography, Grid, TextField, Button, Paper, Link as MuiLink, useTheme } from '@mui/material';
+import { Box, Container, Typography, Grid, TextField, Button, Paper, Link as MuiLink, useTheme, Snackbar, Alert } from '@mui/material';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Email, Forum } from '@mui/icons-material'; // Import icons
+import { Email, Forum } from '@mui/icons-material';
 
 const Contact = () => {
   const theme = useTheme();
@@ -10,6 +10,13 @@ const Contact = () => {
     email: '',
     subject: '',
     message: ''
+  });
+
+  // --- NEW: State for Snackbar notification ---
+  const [notification, setNotification] = useState({
+    open: false,
+    message: '',
+    severity: 'success' // can be 'success', 'error', 'warning', 'info'
   });
 
   const handleChange = (e) => {
@@ -23,15 +30,26 @@ const Contact = () => {
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const userID = process.env.REACT_APP_EMAILJS_USER_ID;
 
+    // --- UPDATED: EmailJS logic with success/error handling ---
     emailjs.send(serviceID, templateID, formData, userID).then(
       (result) => {
-        alert('Message sent successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        // On success, show success message
+        setNotification({ open: true, message: 'Message sent successfully!', severity: 'success' });
+        setFormData({ name: '', email: '', subject: '', message: '' }); // Clear form
       },
       (error) => {
-        alert('Failed to send message. Please try again.');
+        // On failure, show error message
+        setNotification({ open: true, message: 'Failed to send message. Please try again.', severity: 'error' });
       }
     );
+  };
+
+  // --- NEW: Function to handle closing the Snackbar ---
+  const handleCloseNotification = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setNotification({ ...notification, open: false });
   };
 
   return (
@@ -104,6 +122,18 @@ const Contact = () => {
           </Grid>
         </Grid>
       </Container>
+
+      {/* --- NEW: Snackbar component for notifications --- */}
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={6000} // Hide after 6 seconds
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
