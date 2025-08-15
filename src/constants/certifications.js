@@ -1,6 +1,6 @@
 const certifications = [
   {
-    title: 'AWS Fundamental Concepts',
+    title: 'AWS Fundamental',
     issuer: 'Zuitt Learning Institute Incorporated',
     image: '/images/certs/aws-fundamental-concept.webp',
     link: 'http://share.zertify.zuitt.co/certificate/9763a9eb-5a58-45d4-9b16-496adb35c8e6', 
@@ -21,7 +21,7 @@ const certifications = [
     title: 'Full-Stack Web Development',
     issuer: 'Zuitt Coding Bootcamp',
     image: '/images/certs/full-stack-cert.webp',
-    link: 'https://www.credly.com/your-badge-link',
+    link: 'http://share.zertify.zuitt.co/certificate/3d71b50c-a60b-4ef8-816d-6f438e82f4cb',
   },
   {
     title: 'Backend Development Certificate',
