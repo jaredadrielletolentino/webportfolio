@@ -12,10 +12,10 @@ const certifications = [
     link: 'http://share.zertify.zuitt.co/certificate/186306ee-db1c-41d1-867a-06961de08422', 
   },
   {
-    title: 'AWS',
+    title: 'AWS Managed Services',
     issuer: 'Zuitt Learning Institute Incorporated',
-    image: '/images/certs/aws-serverful.webp',
-    link: 'http://share.zertify.zuitt.co/certificate/186306ee-db1c-41d1-867a-06961de08422', 
+    image: '/images/certs/aws-managed-services.webp',
+    link: 'http://share.zertify.zuitt.co/certificate/0ad364a5-7a8e-41e9-92fe-56ab9010e329', 
   },
   {
     title: 'Full-Stack Web Development',
