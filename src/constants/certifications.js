@@ -18,6 +18,12 @@ const certifications = [
     link: 'http://share.zertify.zuitt.co/certificate/0ad364a5-7a8e-41e9-92fe-56ab9010e329', 
   },
   {
+    title: 'Zuitts Developer Career Program',
+    issuer: 'Zuitt Coding Bootcamp',
+    image: '/images/certs/zuitt-developer-career.webp',
+    link: 'http://share.zertify.zuitt.co/certificate/d6c4133b-a0a9-4957-8e13-db2abec1f3ee',
+  },
+  {
     title: 'Full-Stack Web Development',
     issuer: 'Zuitt Coding Bootcamp',
     image: '/images/certs/full-stack-cert.webp',
