@@ -1,5 +1,23 @@
 const certifications = [
   {
+    title: 'MySQL for MongoDB Developers',
+    issuer: 'Zuitt Learning Institute Incorporated',
+    image: '/images/certs/mysql.webp',
+    link: 'http://share.zertify.zuitt.co/certificate/cd2784fc-9a38-4e9f-8ef4-832ab6392bb2', 
+  },
+  {
+    title: 'Java for JS Developers',
+    issuer: 'Zuitt Learning Institute Incorporated',
+    image: '/images/certs/java.webp',
+    link: 'http://share.zertify.zuitt.co/certificate/c9b07382-cea0-404e-a925-7836122dd3f0', 
+  },
+  {
+    title: 'Java Spring Boot',
+    issuer: 'Zuitt Learning Institute Incorporated',
+    image: '/images/certs/java-spring-boot.webp',
+    link: 'http://share.zertify.zuitt.co/certificate/cd124170-13e6-4b23-b346-e51afdbb6567', 
+  },
+  {
     title: 'AWS Fundamental',
     issuer: 'Zuitt Learning Institute Incorporated',
     image: '/images/certs/aws-fundamental-concept.webp',
