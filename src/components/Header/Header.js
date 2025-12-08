@@ -18,6 +18,15 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     color: theme.palette.text.primary,
   };
 
+  // Navigation items array for consistency
+  const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Contact', path: '/contact' },
+    { label: 'Certificates', path: '/certifications' },
+    { label: 'Wireframes', path: '/wireframes' }, // Added Wireframes here
+  ];
+
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
@@ -33,18 +42,18 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       </Typography>
       <Divider />
       <List>
-        <ListItem button component={NavLink} to="/" sx={{ justifyContent: 'center' }} style={drawerNavLinkStyle}>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button component={NavLink} to="/projects" sx={{ justifyContent: 'center' }} style={drawerNavLinkStyle}>
-          <ListItemText primary="Projects" />
-        </ListItem>
-        <ListItem button component={NavLink} to="/contact" sx={{ justifyContent: 'center' }} style={drawerNavLinkStyle}>
-          <ListItemText primary="Contact" />
-        </ListItem>
-        <ListItem button component={NavLink} to="/certifications" sx={{ justifyContent: 'center' }} style={drawerNavLinkStyle}>
-          <ListItemText primary="Certificates" />
-        </ListItem>
+        {navItems.map((item) => (
+          <ListItem 
+            key={item.label} 
+            button 
+            component={NavLink} 
+            to={item.path} 
+            sx={{ justifyContent: 'center' }} 
+            style={drawerNavLinkStyle}
+          >
+            <ListItemText primary={item.label} />
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
@@ -69,10 +78,20 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               Jared Tolentino
             </Typography>
             <Box component="nav" sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-              <NavLink to="/" className="nav-link" style={{ textDecoration: 'none', color: 'inherit' }}>Home</NavLink>
-              <NavLink to="/projects" className="nav-link" style={{ marginLeft: 20, textDecoration: 'none', color: 'inherit' }}>Projects</NavLink>
-              <NavLink to="/contact" className="nav-link" style={{ marginLeft: 20, textDecoration: 'none', color: 'inherit' }}>Contact</NavLink>
-              <NavLink to="/certifications" className="nav-link" style={{ marginLeft: 20, textDecoration: 'none', color: 'inherit' }}>Certificates</NavLink>
+              {navItems.map((item, index) => (
+                <NavLink
+                  key={item.label}
+                  to={item.path}
+                  className="nav-link"
+                  style={{ 
+                    marginLeft: index === 0 ? 0 : 20, 
+                    textDecoration: 'none', 
+                    color: 'inherit' 
+                  }}
+                >
+                  {item.label}
+                </NavLink>
+              ))}
             </Box>
             {/* Theme Toggle Button */}
             <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode} color="inherit">

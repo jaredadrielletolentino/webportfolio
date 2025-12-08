@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Certificates from './pages/Certificates';
+import Wireframes from './pages/Wireframes';
 import { lightTheme, darkTheme } from './styles/theme';
 import { useState, useEffect } from 'react';
 import Layout from './components/Layout/Layout';
@@ -37,6 +38,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/certifications" element={<Certificates />} />
+            <Route path="/wireframes" element={<Wireframes />} />
           </Routes>
         </Layout>
         <Footer />
